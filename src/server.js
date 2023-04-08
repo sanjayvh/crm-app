@@ -25,5 +25,5 @@ require("./routes/auth.routes")(app);
 
 app.listen(serverConfig.PORT, (err) => {
     if (err) console.log(`Error listening on port ${serverConfig.PORT}`, err.message);
-    else console.log(`App listening on port ${serverConfig.PORT}`);
+    else console.log(`App listening on port: ${serverConfig.PORT}`);
 })
