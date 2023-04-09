@@ -3,7 +3,7 @@
 const User = require("./../models/user.model");
 const { userTypes } = require("./../utils/constants");
 
-const validateUserReqBody = async (req, res, next) => {
+validateUserReqBody = async (req, res, next) => {
     if (!req.body.name) {
         return res.status(400).send({
             message: "Failed! Username is not provided",
