@@ -78,7 +78,7 @@ exports.signin = async (req, res) => {
         },
         config.secret,
         {
-            expiresIn: 120,
+            expiresIn: "1d",
         }
     );
 
