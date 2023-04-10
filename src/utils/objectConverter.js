@@ -1,6 +1,6 @@
 exports.userResponse = (users) => {
     let userResult = [];
-    users.forEach((user) => {
+    users.forEach(user => {
         userResult.push({
             name: user.name,
             userId: user.userId,

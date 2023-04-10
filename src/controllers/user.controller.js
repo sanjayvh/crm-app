@@ -64,6 +64,50 @@ exports.findAll = async (req, res) => {
             });
         }
     }
-
+    
     return res.status(200).send(objectConverter.userResponse(users));
+};
+
+exports.findById = async (req, res) => {
+    const userReq = req.params.userId;
+    
+    const user = await User.findOne({
+        userId: userReq,
+    });
+    
+    console.log(user);
+    if (user) {
+        return res.status(200).send(objectConverter.userResponse([user]));
+    } else {
+        return res.status(200).send({
+            message: `User with this id: ${userReq} is not present`,
+        });
+    }
+};
+
+exports.update = async (req, res) => {
+    const userReq = req.params.userId;
+    
+    let itemsToBeUpdated = {};
+    req.body.name ? itemsToBeUpdated["name"] = req.body.name: "";
+    req.body.userStatus ? itemsToBeUpdated["userStatus"] = req.body.userStatus: "";
+    req.body.userType ? itemsToBeUpdated["userType"] = req.body.userType: "";
+
+    try {
+        const user = await User.findOneAndUpdate({
+            userId: userReq
+        }, itemsToBeUpdated, {
+            new: true
+        }).exec();
+
+        return res.status(200).send({
+            message: "User details updated successfully",
+            data: objectConverter.userResponse([user]),
+        });
+    } catch (err) {
+        console.log(`Error while updating user`, err.message);
+        return res.status(500).send({
+            message: `Some internal error occured while updating user`,
+        });
+    }
 };

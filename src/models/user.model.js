@@ -44,6 +44,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         default: "APPROVED",
     },
+    tickersCreated: {
+        type: [mongoose.SchemaTypes.ObjectId],
+        ref: "Ticket"
+    },
+    ticketsAssigned: {
+        type: [mongoose.SchemaTypes.ObjectId],
+        ref: "Ticket"
+    }
 });
 
 module.exports = mongoose.model("User", userSchema);
