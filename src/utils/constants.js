@@ -8,8 +8,15 @@ userStatus = {
     approved: "APPROVED",
     rejected: "REJECTED",
 };
+ticketStatus = {
+    open: "OPEN",
+    inProgress: "IN_PROGRESS",
+    blocked: "BLOCKED",
+    closed: "CLOSED",
+};
 
 module.exports = {
     userTypes,
     userStatus,
+    ticketStatus,
 };
