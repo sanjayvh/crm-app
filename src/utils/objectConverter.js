@@ -1,6 +1,6 @@
 exports.userResponse = (users) => {
     let userResult = [];
-    users.forEach(user => {
+    users.forEach((user) => {
         userResult.push({
             name: user.name,
             userId: user.userId,
@@ -11,4 +11,23 @@ exports.userResponse = (users) => {
     });
 
     return userResult;
+};
+
+exports.ticketResponse = (tickets) => {
+    let ticketResult = [];
+    tickets.forEach((ticket) => {
+        ticketResult.push({
+            name: ticket.title,
+            ticketPriority: ticket.ticketPriority,
+            description: ticket.description,
+            status: ticket.status,
+            reporter: ticket.reporter,
+            assignee: ticket.assignee,
+            id: ticket._id,
+            createdAt: ticket.createdAt,
+            updatedAt: ticket.updatedAt,
+        });
+    });
+
+    return ticketResult;
 };
