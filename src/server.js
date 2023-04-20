@@ -23,6 +23,7 @@ db.once("open", () => {
 
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
+require("./routes/ticket.routes")(app);
 
 app.listen(serverConfig.PORT, (err) => {
     if (err) console.log(`Error listening on port ${serverConfig.PORT}`, err.message);
