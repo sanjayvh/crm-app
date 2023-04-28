@@ -6,6 +6,11 @@ const {
 } = require("../../controllers/user.controller");
 const User = require("../../models/user.model");
 
+const db = require("./../db");
+beforeAll(async () => await db.connect);
+afterEach(async () => await db.clearDatabase);
+afterAll(async () => await db.closeDatabase);
+
 const userTestPayload = {
     userType: "CUSTOMER",
     password: "123455678",
@@ -142,4 +147,4 @@ describe("findAll", () => {
     });
 });
 
-jest.setTimeout(30000);
+// jest.setTimeout(30000);

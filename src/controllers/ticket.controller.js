@@ -2,7 +2,7 @@ const User = require("./../models/user.model");
 const Ticket = require("./../models/ticket.model");
 const { userTypes, userStatus } = require("./../utils/constants");
 const objectConverter = require("./../utils/objectConverter");
-const sendEmail = require("../utils/notificationClient");
+const { sendEmail } = require("./../utils/notificationClient");
 
 /**
  * Create a ticket

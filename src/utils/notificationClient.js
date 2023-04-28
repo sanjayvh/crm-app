@@ -1,7 +1,7 @@
 var Client = require("node-rest-client").Client;
 var client = new Client();
 
-module.exports = (ticketId, subject, content, emailIds, requestor) => {
+const sendEmail = (ticketId, subject, content, emailIds, requestor) => {
     var reqBody = {
         subject: subject,
         content: content,
@@ -23,4 +23,9 @@ module.exports = (ticketId, subject, content, emailIds, requestor) => {
         console.log("Post Request Sent to the Notification Service");
         console.log(data);
     });
+};
+
+module.exports = {
+    sendEmail,
+    client,
 };
