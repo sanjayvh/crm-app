@@ -10,7 +10,7 @@ module.exports.connect = async () => {
         // automatically start it
         mongod = await MongoMemoryServer.create();
 
-        const uri = mongod.getUri();
+        const uri = await mongod.getUri();
         const mongooseOpts = {
             useUnifiedTopology: true,
             maxPoolsize: 10,
