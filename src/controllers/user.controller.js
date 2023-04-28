@@ -77,7 +77,7 @@ exports.findById = async (req, res) => {
     
     console.log(user);
     if (user) {
-        return res.status(200).send(objectConverter.userResponse([user]));
+        return res.status(200).send(objectConverter.userResponse(user));
     } else {
         return res.status(200).send({
             message: `User with this id: ${userReq} is not present`,
@@ -102,7 +102,7 @@ exports.update = async (req, res) => {
 
         return res.status(200).send({
             message: "User details updated successfully",
-            data: objectConverter.userResponse([user]),
+            // data: objectConverter.userResponse([user]),
         });
     } catch (err) {
         console.log(`Error while updating user`, err.message);
