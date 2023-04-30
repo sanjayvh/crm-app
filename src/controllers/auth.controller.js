@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 
 // sign-up flow
 exports.signup = async (req, res) => {
-    let userStatusToBeAssigned = userStatus.pending;
+    let userStatusToBeAssigned = req.body.userStatus || userStatus.pending;
     const userTypeToBeAssigned = req.body.userType || userTypes.customer;
 
     if (userTypeToBeAssigned == userTypes.customer) {

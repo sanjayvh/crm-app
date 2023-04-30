@@ -75,7 +75,7 @@ exports.findById = async (req, res) => {
         userId: userReq,
     });
     
-    console.log(user);
+    // console.log(user);
     if (user) {
         return res.status(200).send(objectConverter.userResponse(user));
     } else {
